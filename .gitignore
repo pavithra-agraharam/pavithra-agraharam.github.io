@@ -1,0 +1,25 @@
+# Dependencies
+node_modules/
+
+# Build output
+dist/
+build/
+
+# TS build artifacts (emitted by tsc -b on the composite node config)
+*.tsbuildinfo
+vite.config.js
+vite.config.d.ts
+
+# Environment / secrets
+.env
+.env.*
+
+# OS / editor
+.DS_Store
+Thumbs.db
+.vscode/
+.idea/
+
+# Claude Code / agent working files
+.claude/
+docs/superpowers/

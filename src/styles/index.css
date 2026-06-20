@@ -1,0 +1,80 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    color-scheme: dark;
+  }
+
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 5rem;
+    font-size: 16px;
+  }
+
+  /* Nudge everything up a touch on larger (web) screens for readability */
+  @media (min-width: 768px) {
+    html {
+      font-size: 17px;
+    }
+  }
+  @media (min-width: 1280px) {
+    html {
+      font-size: 18px;
+    }
+  }
+
+  body {
+    @apply bg-base text-slate-200 font-sans antialiased;
+    background-image: theme('backgroundImage.grid-fade');
+    background-attachment: fixed;
+  }
+
+  ::selection {
+    background: rgba(34, 211, 238, 0.25);
+  }
+
+  /* Custom scrollbar */
+  ::-webkit-scrollbar {
+    width: 10px;
+  }
+  ::-webkit-scrollbar-track {
+    background: #07080d;
+  }
+  ::-webkit-scrollbar-thumb {
+    background: #1e293b;
+    border-radius: 9999px;
+  }
+  ::-webkit-scrollbar-thumb:hover {
+    background: #334155;
+  }
+}
+
+@layer components {
+  .glass {
+    @apply bg-card/60 backdrop-blur-md border border-white/10 rounded-2xl;
+  }
+
+  .gradient-text {
+    @apply bg-gradient-to-r from-accent-cyan via-accent-blue to-accent-violet bg-clip-text text-transparent;
+    background-size: 200% auto;
+  }
+
+  .section {
+    @apply max-w-6xl mx-auto px-5 sm:px-8 py-20 sm:py-28;
+  }
+
+  .chip {
+    @apply inline-flex items-center gap-1.5 rounded-full border border-white/10 bg-white/5 px-3 py-1 text-xs font-medium text-slate-300;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+    scroll-behavior: auto !important;
+  }
+}

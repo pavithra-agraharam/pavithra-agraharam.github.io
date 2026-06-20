@@ -1,0 +1,4 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://pavithra-agraharam.github.io/sitemap.xml

@@ -1,0 +1,50 @@
+export const profile = {
+  name: 'Pavithra Agraharam',
+  initials: 'PA',
+  roles: [
+    'AI/ML Engineer',
+    'Computer Vision Engineer',
+    'MLOps Engineer',
+    'Data Engineer',
+  ],
+  tagline: 'I teach machines to think and predict - so humans don’t have to.',
+  headline:
+    'AI/ML Engineer · Published Author. Engineering intelligent systems and workflows across computer vision, NLP, MLOps and the cloud.',
+  since: 2018,
+  summary:
+    "I've been hands-on with artificial intelligence since 2018 - from my first AI voice assistant to shipping computer-vision, NLP and MLOps systems in production. I love turning messy real-world data into reliable models that drive measurable business impact: faster pipelines, lower costs, and decisions you can trust.",
+  location: 'United States',
+  email: 'pavithra.agraharam2@gmail.com',
+  resumeUrl: '/resume.pdf',
+  socials: {
+    github: 'https://github.com/pavithra-agraharam',
+    linkedin: 'https://www.linkedin.com/in/pavithraagraharam/',
+    medium:
+      'https://medium.com/@kartheekvadlamani/mastering-mlops-a-comprehensive-guide-to-build-scalable-and-reliable-machine-learning-pipelines-2c015937056c',
+    email: 'mailto:pavithra.agraharam2@gmail.com',
+  },
+  education: [
+    {
+      school: 'University of Alabama at Birmingham (UAB)',
+      degree: 'M.S. Computer Science',
+      detail: 'GPA 3.8 / 4.0',
+    },
+    {
+      school: 'Kommuri Pratap Reddy Institute of Technology (KPRIT)',
+      degree: 'B.Tech. Computer Science',
+      detail: 'CGPA 8.13 / 10',
+    },
+  ],
+  certifications: [
+    'Advanced Machine Learning',
+    'Deep Learning Specialization',
+    'AWS Cloud Practitioner',
+    'Python Specialization',
+  ],
+  stats: [
+    { label: 'Years in AI', value: '7+' },
+    { label: 'Projects shipped', value: '25+' },
+    { label: 'Publications', value: '2' },
+    { label: 'Domains', value: '5' },
+  ],
+}
