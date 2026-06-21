@@ -1,19 +1,16 @@
 import { useState } from 'react'
-import { Menu, X } from 'lucide-react'
+import { motion } from 'framer-motion'
+import { Menu, Search, X } from 'lucide-react'
 import { useScrollSpy } from '../hooks/useScrollSpy'
 import { profile } from '../data/profile'
+import { sections } from '../data/sections'
 
-const links = [
-  { id: 'about', label: 'About' },
-  { id: 'experience', label: 'Experience' },
-  { id: 'projects', label: 'Projects' },
-  { id: 'skills', label: 'Skills' },
-  { id: 'publications', label: 'Writing' },
-  { id: 'contact', label: 'Contact' },
-]
+interface Props {
+  onOpenPalette: () => void
+}
 
-export function Navbar() {
-  const active = useScrollSpy(links.map((l) => l.id))
+export function Navbar({ onOpenPalette }: Props) {
+  const active = useScrollSpy(sections.map((l) => l.id))
   const [open, setOpen] = useState(false)
 
   return (
@@ -25,20 +22,36 @@ export function Navbar() {
         </a>
 
         <nav className="hidden items-center gap-1 md:flex">
-          {links.map((l) => (
+          {sections.map((l) => (
             <a
               key={l.id}
               href={`#${l.id}`}
-              className={`rounded-lg px-3 py-1.5 text-sm transition-colors ${
+              className={`relative rounded-lg px-3 py-1.5 text-sm transition-colors ${
                 active === l.id ? 'text-accent-cyan' : 'text-slate-400 hover:text-white'
               }`}
             >
+              {active === l.id && (
+                <motion.span
+                  layoutId="navIndicator"
+                  className="absolute inset-0 -z-10 rounded-lg bg-accent-cyan/10"
+                  transition={{ type: 'spring', stiffness: 380, damping: 30 }}
+                />
+              )}
               {l.label}
             </a>
           ))}
         </nav>
 
         <div className="flex items-center gap-3">
+          <button
+            onClick={onOpenPalette}
+            className="hidden items-center gap-2 rounded-lg border border-white/10 bg-white/5 px-3 py-1.5 text-sm text-slate-400 transition-colors hover:text-white sm:flex"
+          >
+            <Search size={14} /> Search...
+            <kbd className="rounded border border-white/10 px-1.5 font-mono text-[10px] text-slate-500">
+              ⌘K
+            </kbd>
+          </button>
           <a
             href={profile.resumeUrl}
             download
@@ -46,6 +59,9 @@ export function Navbar() {
           >
             Resume
           </a>
+          <button aria-label="Search" onClick={onOpenPalette} className="text-slate-200 sm:hidden">
+            <Search size={20} />
+          </button>
           <button
             aria-label="Toggle menu"
             onClick={() => setOpen((o) => !o)}
@@ -59,7 +75,7 @@ export function Navbar() {
       {open && (
         <div className="mx-auto mt-2 max-w-6xl rounded-2xl border border-white/10 bg-base/95 p-3 backdrop-blur-lg md:hidden">
           <nav className="flex flex-col">
-            {links.map((l) => (
+            {sections.map((l) => (
               <a
                 key={l.id}
                 href={`#${l.id}`}

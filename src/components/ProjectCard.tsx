@@ -7,10 +7,11 @@ interface Props {
   project: Project
   featured?: boolean
   onOpen?: () => void
+  onTechClick?: (tech: string) => void
 }
 
 export const ProjectCard = forwardRef<HTMLElement, Props>(function ProjectCard(
-  { project, featured, onOpen },
+  { project, featured, onOpen, onTechClick },
   ref,
 ) {
   const repo = project.github
@@ -77,9 +78,16 @@ export const ProjectCard = forwardRef<HTMLElement, Props>(function ProjectCard(
 
       <div className="mt-4 flex flex-wrap gap-1.5 border-t border-white/5 pt-4">
         {project.tech.map((t) => (
-          <span key={t} className="font-mono text-[11px] text-slate-500">
+          <button
+            key={t}
+            onClick={(e) => {
+              e.stopPropagation()
+              onTechClick?.(t)
+            }}
+            className="font-mono text-[11px] text-slate-500 transition-colors hover:text-accent-cyan"
+          >
             #{t.replace(/\s+/g, '')}
-          </span>
+          </button>
         ))}
       </div>
 

@@ -1,9 +1,18 @@
+import { useState } from 'react'
 import { motion } from 'framer-motion'
-import { Mail, Github, Linkedin, BookOpen } from 'lucide-react'
+import { Mail, Github, Linkedin, BookOpen, Copy, Check } from 'lucide-react'
 import { SectionHeading } from './ui/SectionHeading'
 import { profile } from '../data/profile'
 
 export function Contact() {
+  const [copied, setCopied] = useState(false)
+
+  const handleCopyEmail = async () => {
+    await navigator.clipboard.writeText(profile.email)
+    setCopied(true)
+    setTimeout(() => setCopied(false), 1500)
+  }
+
   return (
     <section id="contact" className="section">
       <SectionHeading eyebrow="06 - Contact" title="Let's build something intelligent" />
@@ -21,13 +30,23 @@ export function Contact() {
             shop about computer vision, MLOps or data pipelines, my inbox is open.
           </p>
 
-          <div className="mt-8 flex flex-wrap gap-3">
+          <div className="mt-8 flex flex-wrap items-center gap-3">
             <a
               href={profile.socials.email}
               className="flex items-center gap-2 rounded-xl bg-gradient-to-r from-accent-cyan to-accent-violet px-6 py-3 text-sm font-semibold text-base shadow-glow transition-transform hover:scale-105"
             >
               <Mail size={16} /> {profile.email}
             </a>
+            <button
+              onClick={handleCopyEmail}
+              aria-label="Copy email address"
+              className="flex items-center gap-2 rounded-xl border border-white/15 bg-white/5 p-3 text-white transition-colors hover:bg-white/10"
+            >
+              {copied ? <Check size={16} className="text-accent-cyan" /> : <Copy size={16} />}
+            </button>
+            <span aria-live="polite" className="sr-only">
+              {copied ? 'Email copied to clipboard' : ''}
+            </span>
             <a
               href={profile.resumeUrl}
               download
