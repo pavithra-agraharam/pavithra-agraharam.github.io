@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react'
-import { motion } from 'framer-motion'
+import { AnimatePresence, motion } from 'framer-motion'
 import { ArrowDown, Download, Github, Linkedin } from 'lucide-react'
 import { NeuralBackground } from './NeuralBackground'
 import { profile } from '../data/profile'
@@ -54,16 +54,18 @@ export function Hero() {
           className="mt-4 flex h-9 items-center gap-2 font-mono text-lg sm:text-2xl"
         >
           <span className="text-slate-500">&gt;</span>
-          <motion.span
-            key={roleIdx}
-            initial={{ opacity: 0, y: 8 }}
-            animate={{ opacity: 1, y: 0 }}
-            exit={{ opacity: 0, y: -8 }}
-            className="gradient-text animate-gradient-x"
-          >
-            {profile.roles[roleIdx]}
-          </motion.span>
-          <span className="ml-0.5 inline-block h-4 w-2 animate-pulse bg-accent-cyan/70" />
+          <AnimatePresence mode="wait">
+            <motion.span
+              key={roleIdx}
+              initial={{ opacity: 0, y: 8 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -8 }}
+              className="gradient-text animate-gradient-x"
+            >
+              {profile.roles[roleIdx]}
+            </motion.span>
+          </AnimatePresence>
+          <span className="ml-0.5 animate-blink text-accent-cyan">_</span>
         </motion.div>
 
         <motion.p

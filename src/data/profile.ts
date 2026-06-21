@@ -3,11 +3,11 @@ export const profile = {
   initials: 'PA',
   roles: [
     'AI/ML Engineer',
-    'Computer Vision Engineer',
     'MLOps Engineer',
+    'Computer Vision Engineer',
     'Data Engineer',
   ],
-  tagline: 'I teach machines to think and predict - so humans don’t have to.',
+  tagline: 'I teach machines to think and predict, so humans don’t have to',
   headline:
     'AI/ML Engineer · Published Author. Engineering intelligent systems and workflows across computer vision, NLP, MLOps and the cloud.',
   since: 2018,
@@ -25,21 +25,24 @@ export const profile = {
   },
   education: [
     {
-      school: 'University of Alabama at Birmingham (UAB)',
+      school: 'University of Alabama at Birmingham',
       degree: 'M.S. Computer Science',
-      detail: 'GPA 3.8 / 4.0',
+      detail: '(UAB)',
     },
     {
-      school: 'Kommuri Pratap Reddy Institute of Technology (KPRIT)',
+      school: 'Kommuri Pratap Reddy Institute of Technology',
       degree: 'B.Tech. Computer Science',
-      detail: 'CGPA 8.13 / 10',
+      detail: '(KPRIT)',
     },
   ],
   certifications: [
-    'Advanced Machine Learning',
-    'Deep Learning Specialization',
+    'Advanced Machine Learning (Specialization)',
+    'Deep Learning (Specialization)',
     'AWS Cloud Practitioner',
-    'Python Specialization',
+    'Python (Specialization)',
+    'Web Design (Specialization)',
+    'Network Security Specialist',
+    'Cyber Security and Ethical Hacking'
   ],
   stats: [
     { label: 'Years in AI', value: '7+' },

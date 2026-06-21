@@ -36,10 +36,15 @@ export default {
           '0%, 100%': { transform: 'translateY(0)' },
           '50%': { transform: 'translateY(-8px)' },
         },
+        blink: {
+          '0%, 50%': { opacity: '1' },
+          '50.01%, 100%': { opacity: '0' },
+        },
       },
       animation: {
         'gradient-x': 'gradient-x 6s ease infinite',
         float: 'float 6s ease-in-out infinite',
+        blink: 'blink 1s steps(1) infinite',
       },
     },
   },

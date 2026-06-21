@@ -13,6 +13,7 @@ import { ScrollProgress } from './components/ScrollProgress'
 import { CursorGlow } from './components/CursorGlow'
 import { ScrollToTop } from './components/ScrollToTop'
 import { CommandPalette } from './components/CommandPalette'
+import { SectionDots } from './components/SectionDots'
 
 export default function App() {
   const [paletteOpen, setPaletteOpen] = useState(false)
@@ -45,6 +46,7 @@ export default function App() {
       </main>
       <Footer />
       <ScrollToTop />
+      <SectionDots />
       <AnimatePresence>
         {paletteOpen && (
           <CommandPalette
